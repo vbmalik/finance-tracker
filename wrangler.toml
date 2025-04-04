@@ -1,0 +1,41 @@
+name = "finance-tracker-api"
+main = "src/api/worker.js"
+compatibility_date = "2023-07-10"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "finance-tracker-db"
+database_id = "78fc41c0-e6b5-40af-b3ea-b5c9ed0a5933"
+
+[[r2_buckets]]
+binding = "RECEIPTS"
+bucket_name = "receipt-images"
+
+# Create a separate worker for public access to receipts
+[env.receipt-viewer]
+name = "receipt-viewer"
+workers_dev = true
+
+[[env.receipt-viewer.r2_buckets]]
+binding = "RECEIPTS"
+bucket_name = "receipt-images"
+preview_bucket_name = "receipt-images"
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "9fe8a314739b43bdb3f30b104c484f7a"
+
+[[queues.producers]]
+binding = "PROCESSING_QUEUE"
+queue = "meeting-processing-queue"
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "finance-tracker-analytics"
+
+[[queues.producers]]
+binding = "FINANCE_QUEUE"
+queue = "finance-processing-queue"
+
+# Add this line to your wrangler.toml file
+pages_build_output_dir = "out"
