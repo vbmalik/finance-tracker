@@ -37,5 +37,8 @@ dataset = "finance-tracker-analytics"
 binding = "FINANCE_QUEUE"
 queue = "finance-processing-queue"
 
-# Add this line to your wrangler.toml file
+
 pages_build_output_dir = "out"
+
+[pages_build_config]
+build_command = "npm run build"
