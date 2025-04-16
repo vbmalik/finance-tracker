@@ -1,0 +1,21 @@
+name = "images-worker"
+main = "src/index.js"
+compatibility_date = "2023-01-01"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "vbcloudflare-users"
+database_id = "d42fe8bc-b1cd-42b0-af39-f9a457fb11e6"
+
+# Environment variables
+[vars]
+JWT_SECRET = "e0f66bd50129f69e828f59997a5f5e61275be32276cdd749739f8eb4d93ae257" # Use the same secret as auth-worker
+CLOUDFLARE_ACCOUNT_ID = "488f531fa6f2f4b0e7e7394d03dcee2b"
+CLOUDFLARE_API_TOKEN = "_9yepA_tQm5stQWvXMtKQBheNBqOIRySg-_7NEZi"
+CLOUDFLARE_IMAGES_HASH = "ul58lIcljVuIZnQmZWnesw" # This is the hash in your Cloudflare Images URL
+
+# Routes
+routes = [
+  { pattern = "images-api.vbcloudflare.org/*", zone_name = "vbcloudflare.org" }
+]

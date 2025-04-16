@@ -1,0 +1,24 @@
+name = "vbcloudflare-website"
+compatibility_date = "2023-01-01"
+
+# D1 Database configuration with the correct UUID
+[[d1_databases]]
+binding = "DB"
+database_name = "vbcloudflare-users"
+database_id = "d42fe8bc-b1cd-42b0-af39-f9a457fb11e6"
+
+# KV Namespace (if you've created one)
+# kv_namespaces = [
+#   { binding = "AUTH_TOKENS", id = "your-kv-namespace-id" }
+# ]
+
+# Environment variables
+[vars]
+JWT_SECRET = "your-secret-key" # Change this to a secure random string
+# TURNSTILE_SECRET_KEY = "your-turnstile-secret-key"
+# CLOUDFLARE_ACCOUNT_ID = "your-cloudflare-account-id"
+# CLOUDFLARE_API_TOKEN = "your-cloudflare-api-token"
+# CLOUDFLARE_IMAGES_HASH = "your-cloudflare-images-hash"
+
+# Account ID for VB Demo Account
+account_id = "488f531fa6f2f4b0e7e7394d03dcee2b"

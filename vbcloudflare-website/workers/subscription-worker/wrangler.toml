@@ -1,0 +1,23 @@
+name = "subscription-worker"
+main = "src/index.js"
+compatibility_date = "2023-01-01"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "vbcloudflare-users"
+database_id = "2f830aa3-01df-4c61-9ae2-e0023506a616"
+
+# Cloudflare Queue
+[[queues.producers]]
+queue = "subscription-queue"
+binding = "SUBSCRIPTION_QUEUE"
+
+# Environment variables
+[vars]
+JWT_SECRET = "" # Use the same secret as auth-worker
+
+# Routes
+routes = [
+  { pattern = "subscription-api.vbcloudflare.org/*", zone_name = "vbcloudflare.org" }
+]
